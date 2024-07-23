@@ -1,0 +1,47 @@
+version: '3'
+services:
+  service1:
+    image: "image_name:version"
+    hostname: "hostname"
+    container_name: "container_name"
+    ports:
+      - "host_port:container_port"
+    environment:
+      ENV_VAR1: "value1"
+      ENV_VAR2: "value2"
+    networks:
+      - network_name
+    volumes:
+      - ./local_path:/container_path
+
+  service2:
+    image: "image_name:version"
+    hostname: "hostname"
+    container_name: "container_name"
+    ports:
+      - "host_port:container_port"
+    environment:
+      ENV_VAR1: "value1"
+      ENV_VAR2: "value2"
+    networks:
+      - network_name
+    volumes:
+      - ./local_path:/container_path
+
+  service3:
+    image: "image_name:version"
+    container_name: "container_name"
+    ports:
+      - "host_port:container_port"
+    networks:
+      - network_name
+    volumes:
+      - ./local_path:/container_path
+
+  # Additional services can be added here following the same structure
+
+networks:
+  network_name:
+    driver: bridge
+
+

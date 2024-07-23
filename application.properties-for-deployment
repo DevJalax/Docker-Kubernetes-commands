@@ -1,0 +1,87 @@
+# RabbitMQ configuration
+rabbitmq.host=rabbitmq-host
+rabbitmq.username=rabbitmq-username
+rabbitmq.password=rabbitmq-password
+rabbitmq.port=rabbitmq-port
+
+default.queue=default-queue
+
+# APIs with different queues
+apis.with.diff.q=api1,api2,api3,api4
+
+# Number of queues for each API
+no.of.q.api1=1
+no.of.q.api2=1
+no.of.q.api3=1
+no.of.q.api4=1
+
+# Queue names for each API
+api1.1=queue1
+api2.1=queue2
+api3.1=queue3
+api4.1=queue4
+
+# Prometheus configuration
+management.endpoint.metrics.enabled=true
+management.endpoints.web.exposure.include=*
+management.endpoint.prometheus.enabled=true
+management.metrics.export.prometheus.enabled=true
+
+# Server setup
+server.servlet.context-path=/context-path
+server.tomcat.max-threads=500
+server.tomcat.accept-count=100
+server.tomcat.min-spare-threads=10
+server.tomcat.max-connections=1000
+
+# Logging configuration
+logging.config=logback-config-path
+logging.pattern.file=logging-pattern
+
+# Task executor configuration
+task.executor.con.pool.size=5
+task.executor.max.pool.size=300
+task.executor.queue.capacity=500
+
+# Spring RabbitMQ configuration
+spring.rabbitmq.host=localhost
+spring.rabbitmq.username=rabbitmq-username
+spring.rabbitmq.password=rabbitmq-password
+spring.rabbitmq.port=rabbitmq-port
+sms.queue.name=sms-queue
+otp.queue.name=otp-queue
+
+# Hibernate configuration
+spring.datasource.hikari.pool-name=pool-name
+spring.datasource.hikari.maximum-pool-size=30
+spring.datasource.hikari.minimum-idle=5
+spring.datasource.hikari.connection-timeout=300000
+spring.datasource.hikari.idle-timeout=28000
+spring.datasource.hikari.max-lifetime=1800000
+spring.datasource.hikari.leak-detection-threshold=25000
+
+# JPA configuration
+spring.jpa.hibernate.connection.provider_class=org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+spring.jpa.show-sql=true
+
+spring.jpa.properties.hibernate.dialect=hibernate-dialect
+spring.jpa.hibernate.naming.implicit-strategy=org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+spring.jpa.properties.hibernate.jdbc.time_zone=Asia/Kolkata
+spring.jackson.time-zone=IST
+spring.jpa.hibernate.ddl-auto=none
+
+spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+
+spring.datasource.hikari.data-source-properties.cachePrepStmts=true
+spring.datasource.hikari.data-source-properties.prepStmtCacheSize=250
+spring.datasource.hikari.data-source-properties.prepStmtCacheSqlLimit=2048
+spring.datasource.hikari.data-source-properties.useServerPrepStmts=true
+spring.datasource.hikari.data-source-properties.useLocalSessionState=true
+spring.datasource.hikari.data-source-properties.rewriteBatchedStatements=true
+spring.datasource.hikari.data-source-properties.cacheResultSetMetadata=true
+spring.datasource.hikari.data-source-properties.cacheServerConfiguration=true
+spring.datasource.hikari.data-source-properties.elideSetAutoCommits=true
+spring.datasource.hikari.data-source-properties.maintainTimeStats=false
+

@@ -1,0 +1,64 @@
+docker pull amazoncorretto:17-alpine3.18-full
+
+# Docker commands :
+
+docker pull image_name:tag
+docker image ls
+docker run image_name:tag
+docker run --rm -it --entrypoint /bin/sh image_name
+docker compose up -d
+docker logs -f service_name
+
+sudo docker tag image_name:tag aws_account_id.dkr.ecr.region.amazonaws.com/repository_name:tag
+sudo docker push aws_account_id.dkr.ecr.region.amazonaws.com/repository_name:tag
+
+# Maven commands :
+
+mvn clean package jib:dockerBuild
+mvn clean install
+
+
+# AWS Cloud HSM :
+
+FROM amazoncorretto:17-al2-native-jdk
+
+RUN curl -O https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL6/cloudhsm-jce-5.9.0-1.el6.x86_64.rpm
+
+RUN yum install -y cloudhsm-jce-5.9.0-1.el6.x86_64.rpm
+
+# AWS ECR Login :
+
+aws ecr get-login-password --region region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.region.amazonaws.com
+
+# AWS SSO Login and EC2 Access :
+
+saml2aws login
+export AWS_PROFILE=profile_name
+export AWS_DEFAULT_REGION=region
+ssh -i path/to/key.pem ec2-user@instance_id
+
+# File Transfer to EC2
+
+scp -r -i path/to/key.pem source_location destination_location
+scp -r -i path/to/key.pem /local/path/to/file ec2-user@instance_id:/remote/path
+
+# Kubernetes commands :
+
+brew install kubectl
+aws eks update-kubeconfig --name eks_cluster_name
+kubectl config set-context --current --namespace namespace_name
+kubectl get po
+kubectl config get-contexts
+kubectl config use-context <stage-name>
+kubectl get pods
+kubectl exec -it pod_name -- /bin/bash
+kubectl logs -f pod_name
+brew install stern
+kubectl port-forward pod_name localPort:podPort
+stern container_name -c container_name
+kubectl exec -it sql-client-pod_name -- /bin/bash
+
+# MySQL Connection
+
+mysql -h database_endpoint -P 3306 -u username -p
+
