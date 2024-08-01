@@ -1,0 +1,53 @@
+I) For a simple java program :
+
+1) javac filename.java -> filename.class
+
+2) create a docker file save it as Dockerfile.
+
+sample docker file :
+
+FROM openjdk:latest
+WORKDIR /app
+COPY Hello.class .
+CMD ["java", "Hello"]
+
+3) in the same path open terminal , docker build -t helloimage:latest
+
+4) docker images [list all the created image]
+
+
+// push to dockerhub
+// dockerhub login
+
+gpg --gen-key
+
+pass init email-id [raonejalagandeswaran@gmail.com]
+
+5) docker login -u dockerhub-username [jalakandeswaran]
+
+6) password : dockerhub-password
+
+7) docker tag myimage:latest jalakandeswaran/sample-hello-image:latest
+
+8) docker push helloimage:latest
+
+
+II) For a jar file :
+
+only docker file change rest all process same as above 8 points.
+
+DockerFile :
+
+# Use the official OpenJDK base image
+FROM openjdk:17-jdk-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the JAR file into the container
+COPY app.jar .
+
+# Command to run the JAR file
+CMD ["java", "-jar", "app.jar"]
+
+
