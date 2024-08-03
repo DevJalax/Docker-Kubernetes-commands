@@ -1,0 +1,37 @@
+1) oc login [URL] [options]
+
+2) oc new-app [image]
+
+3) oc projects
+
+4) oc project [project-name]
+
+5) oc get [resource-type] [resource-name]
+
+6) oc create -f [filename.yaml]
+
+7) oc apply -f [filename.yaml]
+
+8) oc delete [resource-type] [resource-name]
+
+9) oc describe [resource-type] [resource-name]
+
+10) oc scale deployment [deployment-name] --replicas=[number]
+
+11) oc get pods
+
+12) oc logs [pod-name]
+
+13) oc expose service [service-name]
+
+14) oc edit [resource-type] [resource-name]
+
+15) oc annotate [resource-type] [resource-name] [annotation-key]='[value]'
+
+16) oc autoscale deployment [deployment-name] --min=[min] --max=[max]
+
+17) oc cluster-info
+
+18) oc adm inspect [resource-type]
+
+19) oc auth can-i [verb] [resource]
