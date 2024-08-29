@@ -1,0 +1,15 @@
+Topic: A named stream of messages in Kafka.
+
+Producer Group: A set of producers that work together to send messages to a topic.
+
+Topic Partitioning: Dividing a topic into multiple partitions for scalability and parallel processing.
+
+Offset: A unique identifier for a message in a partition.
+
+Consumer Group: A set of consumers that work together to consume messages from a topic.
+
+Consumer Instances: Individual consumer processes that belong to a consumer group.
+
+Consumer Rebalancing: Reassigning partitions to consumer instances when a consumer joins or leaves the group.
+
+ZooKeeper: A distributed configuration and coordination system used by Kafka to manage the cluster.

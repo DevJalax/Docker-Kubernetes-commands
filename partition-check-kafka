@@ -1,0 +1,19 @@
+create partition for already existing topic : 
+
+bin/kafka-topics.sh --alter --topic upi --partitions 3 --bootstrap-server localhost:9092
+
+
+verify partition creation :
+
+bin/kafka-topics.sh --describe --topic upi --bootstrap-server localhost:9092
+
+
+which partition has received or not from beginning ?
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic upi --partition 0 --from-beginning
+
+
+partition has received in latest :
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic upi --partition 1 --offset latest --max-messages 1
+

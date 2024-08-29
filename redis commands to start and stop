@@ -1,0 +1,3 @@
+start redis : sudo systemctl start redis
+
+stop redis : sudo systemctl stop redis
